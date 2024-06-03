@@ -1,0 +1,22 @@
+
+.menu-sidebar {
+  display: flex;
+  flex-direction: column;
+}
+.menu-content {
+  flex: 1;
+}
+
+.sidebar-toggle {
+  text-decoration: none;
+  color: var(--text-hint-color);
+  cursor: pointer;
+}
+
+.userIcon {
+    cursor: pointer;
+}
+
+.container {
+    margin-left: 0;
+}

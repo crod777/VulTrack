@@ -1,0 +1,52 @@
+
+
+.ngx-poam-assigned-grid {
+    height: 66.6rem;
+}
+
+.grid-container {
+    padding-inline-end: 0;
+    padding-inline-start: 0;
+}
+
+.poam-severity-advanced-pie,
+.poam-status-advanced-pie {
+  display: block;
+  height: 18rem;
+
+  ::ng-deep {
+    .total-value,
+    .item-value,
+    .item-percent {
+      line-height: 1.5;
+    }
+  }
+}
+
+.poam-status-advanced-pie {
+  ::ng-deep .advanced-pie-legend .total-value,
+  ::ng-deep .advanced-pie-legend .total-label {
+    display: none;
+  }
+
+
+  ::ng-deep .advanced-pie-legend .legend-items-container .legend-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin-top: 0.10rem;
+  }
+
+  ::ng-deep .advanced-pie-legend .legend-items-container .legend-items .legend-item:nth-child(1),
+  ::ng-deep .advanced-pie-legend .legend-items-container .legend-items .legend-item:nth-child(2),
+  ::ng-deep .advanced-pie-legend .legend-items-container .legend-items .legend-item:nth-child(3) {
+    margin-bottom: 0.50rem;
+  }
+
+  ::ng-deep .advanced-pie-legend .legend-items-container .legend-items .legend-item:nth-child(4),
+  ::ng-deep .advanced-pie-legend .legend-items-container .legend-items .legend-item:nth-child(5),
+  ::ng-deep .advanced-pie-legend .legend-items-container .legend-items .legend-item:nth-child(6),
+  ::ng-deep .advanced-pie-legend .legend-items-container .legend-items .legend-item:nth-child(7) {
+    flex-basis: calc(25% - 0.5rem);
+  }
+}

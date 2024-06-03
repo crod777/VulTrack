@@ -1,0 +1,50 @@
+
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 2%;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 1%;
+}
+
+
+.form-group input,
+.form-group nb-select {
+  width: 100%;
+}
+
+.status-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2%;
+}
+
+.status-group label {
+  margin-right: 1%;
+}
+
+.status-group nb-select {
+  flex-grow: 1;
+}
+
+.status-container {
+  display: flex;
+  justify-content: left;
+  gap: 2%;
+}
+
+hr {
+  background-color: black;
+  border-color: black;
+  color: black;
+  height: 1px;
+  border: 0;
+}

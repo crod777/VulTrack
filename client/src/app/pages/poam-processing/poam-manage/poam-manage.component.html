@@ -1,0 +1,59 @@
+
+
+<div class="row">
+  <div class="col-xxxl-8">
+    <div class="row">
+      <div class="col-xxxl-7">
+        <nb-card>
+          <vultrack-poam-advanced-pie class="poam-status-advanced-pie" [pieChartData]="advancedStatusPieChartData" [collectionName]="selectedCollectionName"></vultrack-poam-advanced-pie>
+        </nb-card>
+      </div>
+      <div class="col-xxxl-5">
+        <nb-card>
+          <vultrack-poam-advanced-pie class="poam-severity-advanced-pie" [pieChartData]="advancedSeverityseverityPieChartData" [collectionName]="selectedCollectionName"></vultrack-poam-advanced-pie>
+        </nb-card>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xxl">
+        <vultrack-poam-mainchart [poams]="poams" [showAddButton]="false" canvasHeight="30rem" canvasWidth="100rem" (poamsChange)="onPoamsChange($event)"></vultrack-poam-mainchart>
+      </div>
+    </div>
+  </div>
+  <div class="col-xxxl-4">
+    <nb-card class="ngx-poam-assigned-grid">
+      <nb-tabset>
+        <nb-tab class="grid-container" tabTitle="All POAMs">
+          <vultrack-poam-assigned-grid [assignedData]="this.allPoams"
+                                   [assignedColumns]="['POAM ID', 'Adjusted Severity', 'Poam Status', 'Submitter', 'Manage']"
+                                   (managePoam)="managePoam($event)">
+          </vultrack-poam-assigned-grid>
+        </nb-tab>
+        <nb-tab class="grid-container" tabTitle="Needs Attention">
+          <vultrack-poam-assigned-grid [assignedData]="this.poamsNeedingAttention"
+                                   [assignedColumns]="['POAM ID', 'Adjusted Severity', 'Poam Status', 'Submitter', 'Manage']"
+                                   (managePoam)="managePoam($event)">
+          </vultrack-poam-assigned-grid>
+        </nb-tab>
+        <nb-tab class="grid-container" *ngIf="this.userPermissions.accessLevel >= 2" tabTitle="My POAMs">
+          <vultrack-poam-assigned-grid [assignedData]="this.submittedPoams"
+                                   [assignedColumns]="['POAM ID', 'Adjusted Severity', 'Poam Status', 'Submitter', 'Manage']"
+                                   (managePoam)="managePoam($event)">
+          </vultrack-poam-assigned-grid>
+        </nb-tab>
+
+        <nb-tab class="grid-container" *ngIf="this.userPermissions.accessLevel >= 3" tabTitle="Pending Approval">
+          <vultrack-poam-assigned-grid [assignedData]="this.poamsPendingApproval"
+                                   [assignedColumns]="['POAM ID', 'Adjusted Severity', 'Poam Status', 'Approval Status', 'Manage']"
+                                   [userId]="this.user.userId"
+                                   (managePoam)="managePoam($event)">
+          </vultrack-poam-assigned-grid>
+        </nb-tab>
+      </nb-tabset>
+    </nb-card>
+  </div>
+</div>
+<vultrack-poam-grid [poamsData]="poamsForChart"
+               [allColumns]="['POAM ID', 'POAM Status', 'Adjusted Severity', 'Submitter', 'Submitted Date', 'Scheduled Completion Date', 'Manage']"
+               (managePoam)="managePoam($event)">
+</vultrack-poam-grid>
